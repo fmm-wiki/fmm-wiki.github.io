@@ -1,11 +1,7 @@
 ---
-title: Links
+title: Reference
 nav_order: 10
 ---
-
-## Source code of fmm-wiki
-
-[fmm-wiki on github](https://github.com/fmm-wiki/fmm-wiki.github.io)
 
 ## Reference
 
