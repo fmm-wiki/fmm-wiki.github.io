@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Work with OSM data
 nav_order: 4
 parent: Tutorial

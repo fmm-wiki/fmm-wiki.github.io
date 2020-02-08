@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Contact and citation
 nav_order: 8
 ---

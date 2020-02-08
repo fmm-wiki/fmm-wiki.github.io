@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Ubuntu
 parent: Installation
 nav_order: 2

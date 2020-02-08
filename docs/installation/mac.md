@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Mac
 parent: Installation
 nav_order: 4

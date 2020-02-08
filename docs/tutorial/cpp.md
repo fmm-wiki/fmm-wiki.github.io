@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Run fmm in C++
 nav_order: 1
 parent: Tutorial

@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Run fmm in python
 nav_order: 2
 parent: Tutorial

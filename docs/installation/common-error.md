@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Common errors
 parent: Installation
 nav_order: 5

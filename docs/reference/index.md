@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Reference
 nav_order: 10
 ---

@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Run a web demo
 nav_order: 3
 parent: Tutorial
