@@ -22,4 +22,4 @@ GPS trajectory data should be stored in one of the two format:
 
 Network data should be stored in ESRI shapefile, each row stores a network edge with **id, source and target fields**, which defines the topology of network graph.
 
-For more details, please to refer to the [configuration](/docs/documentation/configuration) page.
+Check the [example](/docs/example). For more details, please to refer to the [configuration](/docs/documentation/configuration) page.

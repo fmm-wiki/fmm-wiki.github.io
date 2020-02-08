@@ -44,7 +44,7 @@ Warning
 
 An example can be
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <fmm_config>
   <input>
@@ -96,7 +96,7 @@ Warning
 
 An example is provided as
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ubodt_config>
     <input>

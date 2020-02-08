@@ -8,7 +8,7 @@ parent: Tutorial
 
 With python extension installed, run fmm in python can be as simple as:
 
-```
+```python
 import fmm
 # Load model from configuration file
 model = fmm.MapMatcher("fmm_config.xml")
@@ -25,7 +25,6 @@ print "Matched path geometry",result.mgeom
 print "Matched points geometry",result.pgeom
 print "Matched edge id",list(result.opath)
 print "Matched path edges",list(result.cpath)
-
 ```
 
 You can also run fmm in jupyter-notebook as shown in [fmm_demo.ipynb](https://github.com/cyang-kth/fmm/blob/master/python/fmm_demo.ipynb).
