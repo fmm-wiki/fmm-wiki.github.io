@@ -1,6 +1,6 @@
 title: "FMM-wiki"
 remote_theme: pmarsceill/just-the-docs
-search_enabled: false
+search_enabled: true
 # Welcome to Jekyll!
 #
 # This config file is meant for settings that affect your whole blog, values
