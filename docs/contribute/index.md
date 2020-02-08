@@ -1,9 +1,9 @@
 ---
-title: Contribution
+title: Contribute
 nav_order: 6
 ---
 
-# Contribution
+# Contribute
 
 ---
 
