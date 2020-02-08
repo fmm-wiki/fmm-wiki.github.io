@@ -22,17 +22,18 @@ After you have installed cygwin, open the cygwin-terminal and run the following 
   chmod +x apt-cyg
   mv apt-cyg /usr/local/bin
 ```
-1. Install libraries using apt-cyg
+2. Install libraries using apt-cyg
 ```
   apt-cyg install make gcc-g++ cmake gdal libboost-devel libgdal-devel
 ```
-1. For python extension
+3. For python extension
 ```
   apt-cyg install swig python-devel
 ```
 
 ## Install C++ program
 
+1. Build and install the program with cmake
 ```
   # Under the fmm project folder
   mkdir build
@@ -41,14 +42,12 @@ After you have installed cygwin, open the cygwin-terminal and run the following 
   make
   make install
 ```
-
+2. Verification of installation
 In the cyg-win terminal, type
 ```
   fmm
 ```
-
 You should see
-
 ```
 ------------ Fast map matching (FMM) ------------
 ------------     Author: Can Yang    ------------
@@ -78,13 +77,10 @@ For xml configuration, check example folder
 ------------    Program finished     ------------
 ```
 
-You can check the folder on your windows explorer at `c:\cygwin\home`(
-corresponding to `/home` directory in cygwin.)
-
 ## Install python extension
 
+1. Build with cmake  
 To install the python extension, under the project folder run
-
 ```
     cd python
     mkdir build
@@ -93,10 +89,8 @@ To install the python extension, under the project folder run
     make
 ```
 
-Verification of installation
-
+2. Verification of installation  
 Run (from the `build` folder)
-
 ```
     # Change to the parent folder which contains fmm_test.py
     cd ..

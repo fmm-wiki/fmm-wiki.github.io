@@ -4,15 +4,22 @@ parent: Installation
 nav_order: 4
 ---
 
-## Mac platform
+# Mac platform
+{: .no_toc }
 
-Install requirements with
+1. TOC
+{:toc}
+---
+
+## Install requirements
+
 ```
   brew install boost gdal libomp
 ```
 
-Install the C++ program with
+## Install C++ program
 
+1. Build and install the program with cmake  
 ```
   # Under the project folder
   mkdir build
@@ -22,12 +29,58 @@ Install the C++ program with
   sudo make install
 ```
 
-Install python extension with
+2. Verification of installation  
+Open a new terminal and type `fmm`, you should see the following output:
+```
+------------ Fast map matching (FMM) ------------
+------------     Author: Can Yang    ------------
+------------   Version: 2020.01.31   ------------
+------------     Applicaton: fmm     ------------
+A configuration file is given in the example folder
+Run `fmm config.xml` or with arguments
+fmm argument lists:
+--ubodt (required) <string>: Ubodt file name
+--network (required) <string>: Network file name
+--gps (required) <string>: GPS file name
+--output (required) <string>: Output file name
+--network_id (optional) <string>: Network id name (id)
+--source (optional) <string>: Network source name (source)
+--target (optional) <string>: Network target name (target)
+--gps_id (optional) <string>: GPS id name (id)
+--gps_geom (optional) <string>: GPS geometry name (geom)
+--candidates (optional) <int>: number of candidates (8)
+--radius (optional) <double>: search radius (300)
+--error (optional) <double>: GPS error (50)
+--pf (optional) <double>: penalty factor (0)
+--log_level (optional) <int>: log level (2)
+--output_fields (optional) <string>: Output fields
+  opath,cpath,tpath,ogeom,mgeom,pgeom,
+  offset,error,spdist,tp,ep,all
+For xml configuration, check example folder
+------------    Program finished     ------------
+```
 
+## Install python extension
+
+1. To install the python extension, under the project folder run
 ```
     cd python
     mkdir build
     cd build
     cmake ..
     make
+```
+
+2. Add the `build` folder to the environment variable `PYTHONPATH` (set the `PATH_TO_BUILD_FOLDER` below to the **absolute path** of the `build` folder, e.g., `/home/Administrator/workspace/fmm/python/build`, you can run `pwd` to check the absolute path of the current folder):
+```
+    echo 'export PYTHONPATH=${PYTHONPATH}:PATH_TO_BUILD_FOLDER' >> ~/.bashrc
+    source ~/.bashrc
+```
+
+3. Verification of installation  
+Run (from the `build` folder)
+```
+    # Change to the parent folder which contains fmm_test.py
+    cd ..
+    python fmm_test.py
 ```
