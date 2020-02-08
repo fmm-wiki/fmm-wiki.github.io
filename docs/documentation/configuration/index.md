@@ -32,7 +32,7 @@ parent: Documentation
 | `parameters/gps_error` | float  | Optional | GPS sensor error  (default:`50`)                                                                        |
 | `output/file`          | String | Required | Output file name                                                                                        |
 | `output/fields`        | String | Required | [Output fields](/docs/documentation/output/) name, one or more in (opath,cpath,tpath,ogeom,mgeom, pgeom,offset,error,spdist,tp,ep,all) |
-| `other/log_level`      | int    | Optional | Log level  (default:`2`(infor))                                                                         |
+| `other/log_level`      | int    | Optional | Log level  (default:`2`(info)). `0`-trace,`1`-debug,`2`-info,`3`-warn,`4`-err,`5`-critical,`6`off|
 
 Warning
 {: .label .label-yellow }
@@ -87,7 +87,7 @@ An example can be
 | `input/network/target` | String | Optional | network target field name (default:`target`) |
 | `parameters/delta`     | float  | Optional | Upper distance of routing (default:`3000`)   |
 | `output.file`          | String | Required | Output file name                             |
-| `other/log_level`      | int    | Optional | Log level  (default:`2`(infor))              |
+| `other/log_level`      | int    | Optional | Log level  (default:`2`(infor)), `0`-trace,`1`-debug,`2`-info,`3`-warn,`4`-err,`5`-critical,`6`-off |
 
 Warning
 {: .label .label-yellow }
