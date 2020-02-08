@@ -7,7 +7,7 @@ permalink: /
 # Fast map matching
 
 High performance map matching achieved by precomputation.
-{: .fs-5 .fw-500 .lh-0}
+{: .fs-5 .lh-0}
 
 ---
 
