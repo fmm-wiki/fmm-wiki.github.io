@@ -10,8 +10,11 @@ footer_content: "Copyright &copy; 2020 Can Yang. Distributed by an <a href=\"htt
 heading_anchors: true
 
 # Aux links for the upper right navigation
-aux_links:
-  "FMM on GitHub":
-    - "//github.com/cyang-kth/fmm"
+
+github_url: "//github.com/cyang-kth/fmm"
+github_stars_url: "https://img.shields.io/github/stars/cyang-kth/fmm?logo=GITHUB&logoColor=%237253ed&style=social"
+
+wiki_repo_name: "fmm-wiki"
+wiki_repo_url: "//github.com/fmm-wiki/fmm-wiki.github.io"
 
 ga_tracking: UA-109047723-2

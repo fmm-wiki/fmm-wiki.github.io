@@ -25,7 +25,10 @@ layout: table_wrappers
         {% include nav.html %}
       </div>
       <footer class="site-footer">
-        <p class="text-small text-grey-dk-000 mb-4"><a href="https://github.com/fmm-wiki/fmm-wiki.github.io">fmm-wiki on github</a></br>
+        <p class="text-small text-grey-dk-000 mb-4">
+          {% if site.wiki_repo_name!=nil %}
+          <a href="{{ site.wiki_repo_url }}"><i class="fa fa-github fa-fw"></i>{{ site.wiki_repo_name }}</a></br>
+          {% endif%}
           This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
         </p>
       </footer>
@@ -42,11 +45,18 @@ layout: table_wrappers
             <div class="js-search-results search-results-wrap"></div>
           </div>
           {% endif %}
-          {% if site.aux_links != nil %}
+          {% if site.github_url != nil %}
             <ul class="list-style-none text-small aux-nav">
-              {% for link in site.aux_links %}
-                <li class="d-inline-block my-0{% unless forloop.last %} mr-2{% endunless %}"><a href="{{ link.last }}">{{ link.first }}</a></li>
-              {% endfor %}
+                <li class="d-inline-block my-0{% unless forloop.last %} mr-2{% endunless %}">
+                  <div style="height:100px; line-height:100px;">
+                      <span class="fs-6">
+                        <a class='my-aux-link', href="{{ site.github_url }}">
+                        <img class="repo_icon" src="{{site.github_stars_url}}" alt="">
+                        </a>
+                      </span>
+                  </div>
+
+                </li>
             </ul>
           {% endif %}
         </div>

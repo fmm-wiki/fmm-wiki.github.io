@@ -34,7 +34,7 @@ Install requirements with
 sudo apt-get install swig python-dev
 ```
 
-## Install program in C++
+## Install C++ program
 
 1. Build and install the program with cmake
 ```
