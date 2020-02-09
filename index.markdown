@@ -6,7 +6,7 @@ permalink: /
 
 # Fast map matching
 
-High performance map matching achieved by precomputation.
+A map matching framework in C++.
 {: .fs-5 .lh-0}
 
 ---
