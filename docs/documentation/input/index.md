@@ -20,6 +20,49 @@ GPS trajectory data should be stored in one of the two format:
 
 ## Network data
 
-Network data should be stored in ESRI shapefile, each row stores a network edge with **id, source and target fields**, which defines the topology of network graph.
+Network data should be stored in ESRI shapefile. Each feature should store a network edge with **id, source and target fields**, which define the topology of network graph.
+
+As shown below in solid line below:
+
+![Network](/assets/images/network.png){:.img-large}
 
 Check the [example](/docs/example). For more details, please to refer to the [configuration](/docs/documentation/configuration) page.
+
+## Convert road network in shapefile from/to CSV format
+
+ESRI shapefile can be conveniently converted from/to CSV file using [GDAL program](https://gdal.org/programs/index.html).
+
+1. Convert from shapefile to CSV  
+```bash
+ogr2ogr -f "CSV" edges.csv edges.shp -lco GEOMETRY=AS_WKT
+```
+It will generate a csv file called `edges.csv` with content of (digits of float are removed)
+```
+WKT,_uid_,id,source,target,cost,x1,y1,x2,y2
+"LINESTRING (2 1,2 0)","1","1","1","2",1,2,1,2,0
+"LINESTRING (2 0,2 1)","2","2","2","1",1,2,0,2,1
+"LINESTRING (3 1,2 1)","3","3","3","1",1,3,1,2,1
+"LINESTRING (4 1,3 1)","4","4","4","3",1,4,1,3,1
+```
+
+2. Convert from CSV to shapefile  
+Create a `convert.vrt` file containing the input CSV file and the fields (**the OGRVRTLayer name should be the same name as the csv file**).
+
+```xml
+<OGRVRTDataSource>
+    <OGRVRTLayer name="edges">
+        <SrcDataSource>edges.csv</SrcDataSource>
+        <GeometryType>wkbLineString</GeometryType>
+        <Field name="id" src="id" />
+        <Field name="source" src="source" />
+        <Field name="target" src="target" />
+        <GeometryField encoding="WKT" field='WKT' > </GeometryField >
+    </OGRVRTLayer>
+</OGRVRTDataSource>
+```
+
+Then execute  
+```bash
+ogr2ogr -f "ESRI Shapefile" edges2.shp convert.vrt
+```
+It will generate a new shapefile called edges2.shp.
