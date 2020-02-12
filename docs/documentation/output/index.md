@@ -32,6 +32,8 @@ The output of program `fmm` is a CSV file containing the following information b
 | mgeom         | string         | the geometry of the cpath                                        |
 | ep            | list of floats | emission probability in HMM for each matched point               |
 | tp            | list of floats | transition probability in HMM for two consecutive matched points |
+| all           | -              | all the above fields are exported                                |
+
 
 By default, only `cpath` and `mgeom` are exported. The fields are illusrated by the image below.
 
