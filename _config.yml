@@ -1,11 +1,11 @@
-title: "FMM-wiki"
+title: "FMM"
 remote_theme: pmarsceill/just-the-docs
 search_enabled: true
 
 url: "https://fmm-wiki.github.io"
 footer_content: "Copyright &copy; 2020 Can Yang. Distributed by an <a href=\"https://github.com/cyang-kth/fmm/blob/master/LICENSE.TXT\">Apache License.</a>"
 
-# logo: "/assets/images/fmm.png"
+logo: "/assets/images/fmm.png"
 
 heading_anchors: true
 
