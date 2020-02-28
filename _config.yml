@@ -12,7 +12,7 @@ heading_anchors: true
 # Aux links for the upper right navigation
 
 github_url: "//github.com/cyang-kth/fmm"
-github_stars_url: "https://img.shields.io/github/stars/cyang-kth/fmm?logo=GITHUB&logoColor=%237253ed&style=social"
+github_stars_url: "https://img.shields.io/github/stars/cyang-kth/fmm?logo=GITHUB&style=social"
 
 wiki_repo_name: "fmm-wiki"
 wiki_repo_url: "//github.com/fmm-wiki/fmm-wiki.github.io"

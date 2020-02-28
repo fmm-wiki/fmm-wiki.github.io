@@ -63,7 +63,6 @@ An example can be
   <parameters>
     <k>4</k>
     <r>0.4</r>
-    <pf>0</pf>
     <gps_error>0.5</gps_error>
   </parameters>
   <output>
