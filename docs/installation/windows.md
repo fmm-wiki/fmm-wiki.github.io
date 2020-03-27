@@ -89,7 +89,13 @@ To install the python extension, under the project folder run
     make
 ```
 
-2. Verification of installation  
+2. Add the `build` folder to the environment variable `PYTHONPATH` (set the `PATH_TO_BUILD_FOLDER` below to the **absolute path** of the `build` folder, e.g., `/home/Administrator/workspace/fmm/python/build`, you can run `pwd` to check the absolute path of the current folder):
+```
+    echo 'export PYTHONPATH=${PYTHONPATH}:PATH_TO_BUILD_FOLDER' >> ~/.bashrc
+    source ~/.bashrc
+```
+
+3. Verification of installation  
 Run (from the `build` folder)
 ```
     # Change to the parent folder which contains fmm_test.py
