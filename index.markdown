@@ -6,12 +6,22 @@ permalink: /
 
 # Fast map matching
 
-A map matching framework in C++.
+An open source map matching framework in C++ and Python.
 {: .fs-5 .lh-0}
 
 ---
 
+### Features
+
+- **High performance**: C++ implementation using Rtree, optimized routing, parallel computing.
+- **Python API**: jupyter-notebook and web demo
+- **Scalibility**: millions of GPS points and millions of road edges.  
+- **Multiple data format**: GPS data in CSV and Shapefile.  Road network in ESRI shapefile or Geopackage. OSM network can also be supported with [manual preprocessing](https://github.com/cyang-kth/osm_mapmatching).
+- **Detailed matching information**: traversed path, geometry, individual matched edges, GPS error, etc.
+- **Multiple algorithms**: FMM and STMatch
+- **Cross platform support**: Unix, Mac and Windows.
+
+### Web demo
+
 ![fmm output](/assets/images/demo1.gif){:.img-2}
 ![fmm output](/assets/images/demo2.gif){:.img-2}
-![fmm output](/assets/images/demo3.gif){:.img-2}
-![fmm output](/assets/images/demo4.gif){:.img-2}

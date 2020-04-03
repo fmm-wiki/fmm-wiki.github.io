@@ -1,10 +1,10 @@
 ---
-title: Work with OSM data
+title: OSM data
 nav_order: 4
 parent: Tutorial
 ---
 
-# Work with OSM data
+# OSM data
 
 Currently fmm only support network stored in ESRI shapefile. To work on OpenStreetMap
 data, the OSM file needs to be converted into a routable shapefile.

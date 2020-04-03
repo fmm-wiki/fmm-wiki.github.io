@@ -15,4 +15,4 @@ Sample data and configuration can be downloaded from [example folder](https://gi
 
 ![fmm output](/assets/images/network.png){:.img-large}
 
-To run map matching on the example data, please to refer to the [Run fmm in C++](/docs/tutorial/cpp) page. 
+To run map matching on the example data, please to refer to the [command line program](/docs/tutorial/cpp) page. 

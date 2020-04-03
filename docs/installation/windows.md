@@ -42,6 +42,10 @@ After you have installed cygwin, open the cygwin-terminal and run the following 
   make
   make install
 ```
+It will build executable files under the `build` folder, which are installed to `/usr/local/bin`:
+- `ubodt_gen`: the Upper bounded origin destination table (UBODT) generator (precomputation) program
+- `fmm`: the program implementing fast map matching algorithm
+- `stmatch`: the program implementing STMATCH algorithm, no precomputation needed  
 2. Verification of installation
 In the cyg-win terminal, type
 ```

@@ -26,8 +26,13 @@ nav_order: 4
   cd build
   cmake ..
   make
-  sudo make install
+  sudo make install -j4
 ```
+
+It will build executable files under the `build` folder, which are installed to `/usr/local/bin`:
+- `ubodt_gen`: the Upper bounded origin destination table (UBODT) generator (precomputation) program
+- `fmm`: the program implementing fast map matching algorithm
+- `stmatch`: the program implementing STMATCH algorithm, no precomputation needed
 
 2. Verification of installation  
 Open a new terminal and type `fmm`, you should see the following output:

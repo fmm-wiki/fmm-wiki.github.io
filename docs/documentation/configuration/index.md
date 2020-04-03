@@ -14,12 +14,11 @@ parent: Documentation
 
 # XML
 
-## fmm
+## fmm and stmatch
 
-| `fmm_config/`          | Type   | Option   | Description                                                                                             |
+| `config/`          | Type   | Option   | Description                                                                                             |
 | ---------------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------- |
-| `input/ubodt/file`     | String | Required | ubodt file name                                                                                         |
-| `input/ubodt/delta`    | float  | Optional | upper-bound of distances in ubodt (default infered from file)                                           |
+| `input/ubodt/file`     | String | Required | ubodt file name(required only for `fmm`)                                                                                          |
 | `input/network/file`   | String | Required | network file name                                                                                       |
 | `input/network/id`     | String | Optional | network id field name (default:`id`)                                                                    |
 | `input/network/source` | String | Optional | network source field name (default:`source`)                                                            |
@@ -27,26 +26,34 @@ parent: Documentation
 | `input/gps/file`       | String | Required | GPS file name                                                                                           |
 | `input/gps/id`         | String | Optional | GPS id field/column name (default:`id`)                                                                 |
 | `input/gps/geom`       | String | Optional | GPS geometry field/column name (default:`geom`), only applicable for CSV file                           |
+| `input/gps/x`       | String | Optional | X field/column name (default:`x`), only applicable for GPS point CSV file                           |
+| `input/gps/y`       | String | Optional | Y field/column name (default:`y`), only applicable for GPS point CSV file                           |
+| `input/gps/timestamp`  | String | Optional | Timestamp field/column name (default:`timestamp`), an integer list (Trajectory file) and int (Point GPS file)                           |
 | `parameters/k`         | int    | Optional | number of candidates  (default:`8`)                                                                     |
-| `parameters/r`         | float  | Optional | search radius  (default:`300`)                                                                          |
-| `parameters/gps_error` | float  | Optional | GPS sensor error  (default:`50`)                                                                        |
+| `parameters/r`         | float  | Optional | search radius (unit: map unit) (default:`300`)                                                                          |
+| `parameters/gps_error` | float  | Optional | GPS sensor error (unit: map unit) (default:`50`)                                                                        |
+| `parameters/vmax` | float  | Optional | Maximum vehicle speed (unit: map unit), only applicable for stmatch (default:`30`)                                                                        |
+| `parameters/factor` | float  | Optional | Factor to limit shortest path search, only applicable for stmatch (default:`1.5`)                                                                        |
 | `output/file`          | String | Required | Output file name                                                                                        |
 | `output/fields`        | String | Required | [Output fields](/docs/documentation/output/) name, one or more in (opath,cpath,tpath,ogeom,mgeom, pgeom,offset,error,spdist,tp,ep,all) |
 | `other/log_level`      | int    | Optional | Log level  (default:`2`(info)). `0`-trace,`1`-debug,`2`-info,`3`-warn,`4`-err,`5`-critical,`6`off|
+| `other/log_level`      | int    | Optional | Log level  (default:`2`(info)). `0`-trace,`1`-debug,`2`-info,`3`-warn,`4`-err,`5`-critical,`6`off|
+| `other/use_omp`      | - | Optional | If specified, run map matching in multiple thread|
+| `other/step`     | int  | Optional | Number of trajectories to report the progress of matching (default:100) |
 
 Warning
 {: .label .label-yellow }
 
--   About spatial unit. The unit of search radius and gps error are assumed to be the same as the road network shapefile.
+-   About map unit. The unit of search radius and gps error, vmax are assumed to be the same as the road network shapefile.
     -   Both the network and gps data should be in the same reference system.
-    -   If both the network and gps data are unprojected (in geodetic degree such as OSM and latitude, longitude), then 1 degree of latitude or longitude equals to about 111km. Search radius of `0.003` should be defined here to represent to 300 meters in reality.
+    -   If both the network and gps data are **unprojected (in geodetic degree such as OSM and latitude, longitude)**, then 1 degree of latitude or longitude equals to about 111km. **Search radius of `0.003` should be defined here to represent to 300 meters** in reality.
     -   If both the network and gps data are projected in meters, Search radius of `300` corresponds to 300 meters in reality.
 
 An example can be
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<fmm_config>
+<config>
   <input>
     <ubodt>
       <file>ubodt.txt</file>
@@ -74,19 +81,20 @@ An example can be
   <other>
     <log_level>2</log_level>
   </other>
-</fmm_config>
+</config>
 ```
 
 ## ubodt_gen
 
-| `ubodt_config/`        | Type   | Option   | Description                                  |
+| `config/`        | Type   | Option   | Description                                  |
 | ---------------------- | ------ | -------- | -------------------------------------------- |
 | `input/network/id`     | String | Optional | network id field name (default:`id`)         |
 | `input/network/source` | String | Optional | network source field name (default:`source`) |
 | `input/network/target` | String | Optional | network target field name (default:`target`) |
-| `parameters/delta`     | float  | Optional | Upper distance of routing (default:`3000`)   |
+| `parameters/delta`     | float  | Optional | Upper distance of routing (default:`3000`, unit: map unit)   |
 | `output.file`          | String | Required | Output file name                             |
 | `other/log_level`      | int    | Optional | Log level  (default:`2`(infor)), `0`-trace,`1`-debug,`2`-info,`3`-warn,`4`-err,`5`-critical,`6`-off |
+| `other/use_omp`      | - | Optional | If specified, run in multiple threads, which will be faster |
 
 Warning
 {: .label .label-yellow }
@@ -97,7 +105,7 @@ An example is provided as
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ubodt_config>
+<config>
     <input>
         <network>
             <file>data/edges.shp</file>
@@ -112,38 +120,46 @@ An example is provided as
     <output>
         <file>ubodt.txt</file>        
     </output>
-</ubodt_config>
+</config>
 ```
 
 # Argument list
 
-## fmm
+## fmm and stmatch
 
 | Argument          | Type   | Option   | Description                  |
 | ----------------- | ------ | -------- | ---------------------------- |
 | `--ubodt`         | string | required | Ubodt file name              |
 | `--network`       | string | required | Network file name            |
-| `--gps`           | string | required | GPS file name                |
-| `--output`        | string | required | Output file name             |
 | `--network_id`    | string | optional | Network id name (id)         |
 | `--source`        | string | optional | Network source name (source) |
 | `--target`        | string | optional | Network target name (target) |
+| `--gps`           | string | required | GPS file name                |
 | `--gps_id`        | string | optional | GPS id name (id)             |
-| `--gps_geom`      | string | optional | GPS geometry name (geom)     |
-| `--candidates`    | int    | optional | number of candidates (8)     |
-| `--radius`        | double | optional | search radius (300)          |
-| `--error`         | double | optional | GPS error (50)               |
+| `--gps_geom`      | string | optional | GPS geometry name (geom) (Applicable to GPS trajectory file)    |
+| `--gps_x`      | string | optional | GPS x name (x)  (Applicable to GPS point CSV file)  |
+| `--gps_y`      | string | optional | GPS y name (y)  (Applicable to GPS point CSV file)  |
+| `--gps_timestamp`      | string | optional | GPS timestamp name (timestamp) |
+| `-k,--candidates`    | int    | optional | number of candidates (8)     |
+| `-r,--radius`        | double | optional | search radius (300)          |
+| `-e,--error`         | double | optional | GPS error (50)               |
+| `--factor`    | double    | optional | scale factor (1.5)    |
+| `--vmax`      | double | optional | Maximum speed (30) |
+| `-e,--error`         | double | optional | GPS error (50)               |
 | `--log_level`     | int    | optional | log level (2)                |
+| `--use_omp`     | int    | optional | if specified, multi-thread computing executed |
+| `--output`        | string | required | Output file name             |
 | `--output_fields` | string | optional | Output fields                |
 
 ## ubodt_gen
 
 | Argument      | Type   | Option   | Description                  |
 | ------------- | ------ | -------- | ---------------------------- |
-| `--network`   | string | required | Network file name            |
+| `--network`       | string | required | Network file name            |
+| `--network_id`    | string | optional | Network id name (id)         |
+| `--source`        | string | optional | Network source name (source) |
+| `--target`        | string | optional | Network target name (target) |
 | `--output`    | string | required | Output file name             |
-| `--id`        | string | optional | Network id name (id)         |
-| `--source`    | string | optional | Network source name (source) |
-| `--target`    | string | optional | Network target name (target) |
 | `--delta`     | float  | optional | upperbound (3000)            |
 | `--log_level` | int    | optional | log level (2)                |
+| `--use_omp`     | int    | optional | if specified, multi-thread computing executed |

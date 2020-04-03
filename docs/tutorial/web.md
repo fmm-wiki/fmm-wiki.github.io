@@ -1,5 +1,5 @@
 ---
-title: Run a web demo
+title: Web demo
 nav_order: 3
 parent: Tutorial
 ---
@@ -14,14 +14,53 @@ Install those packages with
 pip install flask tornado
 ```
 
-2. Prepare a [xml configuration of fmm](/docs/documentation/configuration/#fmm). (An example can be found at [fmm_web_config.xml](https://github.com/cyang-kth/osm_mapmatching/blob/master/fmm_web_config.xml). There is no need for xml elements of gps and output for the web app).  
+2. Prepare a JSON configuration
 
-3. Run the `fmm_web_app.py` in the [web_demo](https://github.com/cyang-kth/fmm/tree/master/web_demo)
+STMATCH web app configuration
+```
+{
+  "input": {
+    "network": {
+      "file": "network.shp",
+      "id": "ID"
+    }
+  },
+  "model": "stmatch",
+  "parameters": {
+    "k": 32,
+    "r": 0.01,
+    "e": 0.003
+  }
+}
+```
+
+FMM web app configuration
+```
+{
+  "input": {
+    "network": {
+      "file": "network.shp",
+      "id": "ID"
+    },
+    "ubodt":{
+      "file": "ubodt.txt"
+    }
+  },
+  "model": "fmm",
+  "parameters": {
+    "k": 32,
+    "r": 0.01,
+    "e": 0.003
+  }
+}
+```
+
+3. Run the `fmm_web_app.py` in the [web_demo](https://github.com/cyang-kth/fmm/tree/master//example/web_demo)
 ```bash
 # change to directory web_demo from the project folder
-cd web_demo
+cd example/web_demo
 # Start the web demo app
-python fmm_web_app.py -c fmm_web_config.xml
+python fmm_web_app.py -c stmatch_config.json
 ```
 
 Check [osm_mapmatching](https://github.com/cyang-kth/osm_mapmatching) for a concrete example.
