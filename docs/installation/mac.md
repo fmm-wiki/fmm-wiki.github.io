@@ -72,7 +72,7 @@ For xml configuration, check example folder
     cd python
     mkdir build
     cd build
-    cmake ..
+    cmake -Wno-dev ..
     make
 ```
 

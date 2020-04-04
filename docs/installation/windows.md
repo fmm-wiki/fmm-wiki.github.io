@@ -89,7 +89,7 @@ To install the python extension, under the project folder run
     cd python
     mkdir build
     cd build
-    cmake ..
+    cmake -Wno-dev ..
     make
 ```
 
