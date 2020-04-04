@@ -89,3 +89,5 @@ Run (from the `build` folder)
     cd ..
     python fmm_test.py
 ```
+
+If you have any installation error, refer to [Q&A](/docs/installation/qa).
