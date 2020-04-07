@@ -20,7 +20,15 @@ nav_order: 2
 - [GDAL](http://www.gdal.org/) >= 2.2: IO with ESRI shapefile, Geometry data type
 - [Boost Graph](http://www.boost.org/doc/libs/1_65_1/libs/graph/doc/index.html) >= 1.54.0: routing algorithms used in UBODT Generator
 - [Boost Geometry](http://www.boost.org/doc/libs/1_65_1/libs/geometry/doc/html/index.html) >= 1.54.0: Rtree, Geometry computation
-- [Boost Serialization](https://www.boost.org/doc/libs/1_66_0/libs/serialization/doc/index.html) >= 1.54.0: Serialization of UBODT in binary format  
+- [Boost Serialization](https://www.boost.org/doc/libs/1_66_0/libs/serialization/doc/index.html) >= 1.54.0: Serialization of UBODT in binary format
+
+Update the ppa in order to install required version (2.2) of GDAL.
+
+```
+sudo add-apt-repository ppa:ubuntugis/ppa
+sudo apt-get -q update
+```
+
 Install the requirements with
 ```
 sudo apt-get install libboost-dev libboost-serialization-dev gdal-bin libgdal-dev make cmake
