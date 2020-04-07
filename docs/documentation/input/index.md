@@ -14,10 +14,13 @@ parent: Documentation
 
 ## GPS data
 
-GPS trajectory data should be stored in one of the two format:
-- GDAL trajectory file: an ESRI shapefile where each feature stores a trajectory. The id field name will be specified by the user.
-- CSV trajectory file: a CSV file with a header row and columns separated by `;`. Each row stores a trajectory with geometry in [WKT linestring format](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry). The id and geometry column name will be specified by the user. An example can be found at [trips.csv](https://github.com/cyang-kth/fmm/blob/master/example/data/trips.csv)
-- CSV point file: a CSV file with a header row and columns separated by `;`. Each row stores a single observation containing id, x, y, timestamp(optional). The file must be sorted already by id and timestamp (trajectory will be passed). An example can be found at [gps.csv](https://github.com/cyang-kth/fmm/blob/master/example/data/gps.csv)
+GPS trajectory data should be stored in one of the three formats:
+- GDAL trajectory file: an ESRI shapefile where each feature stores a trajectory. The id field name will be specified by the user.  
+An example can be found at [trips.shp](https://github.com/cyang-kth/fmm/blob/master/example/data/trips.shp)  
+- CSV trajectory file: a CSV file with a header row and columns separated by `;`. Each row stores a trajectory with geometry in [WKT linestring format](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry). The id and geometry column name will be specified by the user.  
+An example can be found at [trips.csv](https://github.com/cyang-kth/fmm/blob/master/example/data/trips.csv)  
+- CSV point file: a CSV file with a header row and columns separated by `;`. Each row stores a single observation containing id, x, y, timestamp(optional). The file must be sorted already by id and timestamp (trajectory will be passed).  
+An example can be found at [gps.csv](https://github.com/cyang-kth/fmm/blob/master/example/data/gps.csv)  
 
 ## Network data
 
