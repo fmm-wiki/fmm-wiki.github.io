@@ -18,9 +18,11 @@ the following command.
 ```
 cmake ..  
 ```
-If you have multiple version of Python installed, you can specify a specific version with
+If you have multiple version of Python installed, you can manually specify Python position
+with (from the docuementation of [cmake](https://cmake.org/cmake/help/v3.0/module/FindPythonLibs.html))
+
 ```
-cmake .. -DPYTHON_LIBRARY=/anaconda2/lib/libpython2.7.dylib
+cmake .. -DPYTHON_LIBRARY=/anaconda2/lib/libpython2.7.dylib -DPYTHON_INCLUDE_DIR=/anaconda2/include/python2.7
 ```
 1. ImportError: dynamic module does not define init function (init_fmm)
 ```
