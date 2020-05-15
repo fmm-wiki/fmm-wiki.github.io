@@ -25,7 +25,9 @@ The output of program `fmm` is a CSV file containing the following information b
 | error         | list of floats | distance from each point to its matched point                    |
 | offset        | list of floats | distance from the matched point to the start of the matched edge |
 | length        | list of floats | length of the matched edge for each point                        |
-| spdist        | list of floats | shortest path distances traversed between consecutive points     |
+| spdist        | list of floats | shortest path distances traversed between consecutive points   |
+| duration      | list of floats | time difference (duration) between two consecutive GPS points |
+| speed         | list of floats | speed of the vehicle between two consecutive GPS points, calculated by spdist/duration |
 | pgeom         | string         | a line connecting the matched points                             |
 | cpath         | list of int    | the path traversed by the trajectory                             |
 | tpath         | list of int    | edges traversed between consecutive points separated by `        |
