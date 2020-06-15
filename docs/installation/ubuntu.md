@@ -14,13 +14,15 @@ nav_order: 2
 
 ## Install requirements
 
-1. Requirements for C++  
+1. Requirements  
 - C++ Compiler supporting c++11 and OpenMP
 - [CMake](https://cmake.org/) >=3.5: cross platform building tools
 - [GDAL](http://www.gdal.org/) >= 2.2: IO with ESRI shapefile, Geometry data type
 - [Boost Graph](http://www.boost.org/doc/libs/1_65_1/libs/graph/doc/index.html) >= 1.54.0: routing algorithms used in UBODT Generator
 - [Boost Geometry](http://www.boost.org/doc/libs/1_65_1/libs/geometry/doc/html/index.html) >= 1.54.0: Rtree, Geometry computation
 - [Boost Serialization](https://www.boost.org/doc/libs/1_66_0/libs/serialization/doc/index.html) >= 1.54.0: Serialization of UBODT in binary format
+- [Libosmium](https://github.com/osmcode/libosmium): a library for reading OpenStreetMap data. It requires expat and bz2.  
+- [swig](http://www.swig.org/): used for building Python bindings.
 
 Update the ppa in order to install required version (2.2) of GDAL.
 
@@ -29,20 +31,13 @@ sudo add-apt-repository ppa:ubuntugis/ppa
 sudo apt-get -q update
 ```
 
-Install the requirements with
+Install all the requirements with
 ```
-sudo apt-get install libboost-dev libboost-serialization-dev gdal-bin libgdal-dev make cmake
-```
-
-2. Requirements for Python  
-- swig 4.0.0
-- Python 2.7  
-Install requirements with
-```
-sudo apt-get install swig python-dev
+sudo apt-get install libboost-dev libboost-serialization-dev \
+gdal-bin libgdal-dev make cmake libbz2-dev libexpat1-dev swig python-dev
 ```
 
-## Install C++ program
+## Install C++ program and Python bindings
 
 1. Build and install the program with cmake
 ```
@@ -50,15 +45,27 @@ sudo apt-get install swig python-dev
   mkdir build
   cd build
   cmake ..
-  make
-  sudo make install -j4
+  make -j4
+  sudo make install
 ```
 It will build executable files under the `build` folder, which are installed to `/usr/local/bin`:
 - `ubodt_gen`: the Upper bounded origin destination table (UBODT) generator (precomputation) program
 - `fmm`: the program implementing fast map matching algorithm
 - `stmatch`: the program implementing STMATCH algorithm, no precomputation needed
 
-2. Verfication of installation  
+It will also create a folder `python` under the build path, which contains library that can
+be imported into Python. In order to import fmm successfully and that folder must be added to the environment variable `PYTHONPATH`.
+
+Add the `build/python` folder to the environment variable `PYTHONPATH` (set the `PATH_TO_BUILD_PYTHON_FOLDER` below to the **absolute path** of the `build/python` folder, e.g., `/home/Administrator/workspace/fmm/build/python`, you can run `pwd` to check the absolute path of the current folder):
+```
+    echo 'export PYTHONPATH=${PYTHONPATH}:PATH_TO_BUILD_FOLDER' >> ~/.bashrc
+    source ~/.bashrc
+```
+
+## Verfication of installation
+
+### Run command line map matching
+
 Open a new terminal and type `fmm`, you should see the following output:
 ```
 ------------ Fast map matching (FMM) ------------
@@ -89,28 +96,12 @@ For xml configuration, check example folder
 ------------    Program finished     ------------
 ```
 
-## Install python extension
+### Run python script
 
-1. To install the python extension, under the project folder run
-```
-    cd python
-    mkdir build
-    cd build
-    cmake -Wno-dev ..
-    make
-```
-
-2. Add the `build` folder to the environment variable `PYTHONPATH` (set the `PATH_TO_BUILD_FOLDER` below to the **absolute path** of the `build` folder, e.g., `/home/Administrator/workspace/fmm/python/build`, you can run `pwd` to check the absolute path of the current folder):
-```
-    echo 'export PYTHONPATH=${PYTHONPATH}:PATH_TO_BUILD_FOLDER' >> ~/.bashrc
-    source ~/.bashrc
-```
-
-3. Verification of installation  
-Run (from the `build` folder)
+Run in bash
 ```
     # Change to the parent folder which contains fmm_test.py
-    cd ..
+    cd ../example/python
     python fmm_test.py
 ```
 

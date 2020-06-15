@@ -24,7 +24,11 @@ Examples can be found at [gps.csv](https://github.com/cyang-kth/fmm/blob/master/
 
 ## Network data
 
-Network data should be stored in ESRI shapefile. Each feature should store a network edge with **id, source and target fields**, which define the topology of network graph.
+Network data should be stored in
+
+- [OSM xml or binary format](https://wiki.openstreetmap.org/wiki/OSM_file_formats). The file should be ended with extensions of `osm,pbf,bz2,o5m`.
+- ESRI shapefile or Geopackage. Each feature should store a network edge with **id, source and target fields**, which define the topology of network graph.
+
 
 As shown below in solid line below:
 
@@ -70,3 +74,7 @@ Then execute
 ogr2ogr -f "ESRI Shapefile" edges2.shp convert.vrt
 ```
 It will generate a new shapefile called edges2.shp.
+
+## Convert road network from OSM format
+
+Refer to this link https://github.com/cyang-kth/osm_mapmatching.

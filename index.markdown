@@ -16,7 +16,7 @@ An open source map matching framework in C++ and Python.
 - **High performance**: C++ implementation using Rtree, optimized routing, parallel computing.
 - **Python API**: jupyter-notebook and web demo
 - **Scalibility**: millions of GPS points and millions of road edges.  
-- **Multiple data format**: GPS data in CSV and Shapefile.  Road network in ESRI shapefile or Geopackage. OSM network can also be supported with [manual preprocessing](https://github.com/cyang-kth/osm_mapmatching).
+- **Multiple data format**: GPS data in CSV and Shapefile.  Road network in OSM format, ESRI shapefile or Geopackage.
 - **Detailed matching information**: traversed path, geometry, individual matched edges, GPS error, etc.
 - **Multiple algorithms**: FMM and STMatch
 - **Cross platform support**: Unix, Mac and Windows.

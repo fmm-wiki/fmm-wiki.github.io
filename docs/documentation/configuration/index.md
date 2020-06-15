@@ -37,7 +37,6 @@ parent: Documentation
 | `output/file`          | String | Required | Output file name                                                                                        |
 | `output/fields`        | String | Required | [Output fields](/docs/documentation/output/) name, one or more in (opath,cpath,tpath,ogeom,mgeom, pgeom,offset,error,spdist,tp,ep,all) |
 | `other/log_level`      | int    | Optional | Log level  (default:`2`(info)). `0`-trace,`1`-debug,`2`-info,`3`-warn,`4`-err,`5`-critical,`6`off|
-| `other/log_level`      | int    | Optional | Log level  (default:`2`(info)). `0`-trace,`1`-debug,`2`-info,`3`-warn,`4`-err,`5`-critical,`6`off|
 | `other/use_omp`      | - | Optional | If specified, run map matching in multiple thread|
 | `other/step`     | int  | Optional | Number of trajectories to report the progress of matching (default:100) |
 
