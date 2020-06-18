@@ -55,6 +55,9 @@ FMM web app configuration
 }
 ```
 
+The network now can also be a OSM file. (e.g., .osm.pbf)
+
+
 3. Run the `fmm_web_app.py` in the [web_demo](https://github.com/cyang-kth/fmm/tree/master//example/web_demo)
 ```bash
 # change to directory web_demo from the project folder

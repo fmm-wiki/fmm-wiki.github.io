@@ -13,6 +13,12 @@ nav_order: 3
 
 ## Install requirements
 
+Warning
+{: .label .label-yellow }
+
+Several issues have been reported about importing the python binding fails in the Windows
+system so currently it is not recommended to install the program on Windows. User should refer to Ubuntu or Mac.
+
 Tested on Win7 (64bit) with [cygwin](https://www.cygwin.com/) environment
 
 1. Install [cygwin](https://www.cygwin.com/) and [apt-cyg](https://github.com/transcode-open/apt-cyg).  

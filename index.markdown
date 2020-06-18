@@ -19,7 +19,7 @@ An open source map matching framework in C++ and Python.
 - **Multiple data format**: GPS data in CSV and Shapefile.  Road network in OSM format, ESRI shapefile or Geopackage.
 - **Detailed matching information**: traversed path, geometry, individual matched edges, GPS error, etc.
 - **Multiple algorithms**: FMM and STMatch
-- **Cross platform support**: Unix, Mac and Windows.
+- **Cross platform support**: Unix and Mac.
 
 ### Web demo
 
