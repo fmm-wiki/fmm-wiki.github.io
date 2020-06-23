@@ -13,12 +13,6 @@ nav_order: 3
 
 ## Install requirements
 
-Warning
-{: .label .label-yellow }
-
-Several issues have been reported about importing the python binding fails in the Windows
-system so currently it is not recommended to install the program on Windows. User should refer to Ubuntu or Mac.
-
 Tested on Win7 (64bit) with [cygwin](https://www.cygwin.com/) environment
 
 1. Install [cygwin](https://www.cygwin.com/) and [apt-cyg](https://github.com/transcode-open/apt-cyg).  
@@ -30,7 +24,7 @@ After you have installed cygwin, open the cygwin-terminal and run the following 
 ```
 2. Install libraries using apt-cyg
 ```
-  apt-cyg install make gcc-g++ cmake gdal libboost-devel libgdal-devel libexpat1-devel libbz2-devel
+  apt-cyg install make gcc-g++ cmake gdal libboost-devel libgdal-devel libexpat1-devel libbz2-devel zlib-devel
 ```
 3. For python extension
 ```
