@@ -23,6 +23,7 @@ parent: Documentation
 | `input/network/id`     | String | Optional | network id field name (default:`id`)                                                                    |
 | `input/network/source` | String | Optional | network source field name (default:`source`)                                                            |
 | `input/network/target` | String | Optional | network target field name (default:`target`)                                                            |
+| `input/network/mode`   | String | Optional | network mode name (default:`drive`), only applies to OSM network, one of `drive|walk|bike|all`.  |
 | `input/gps/file`       | String | Required | GPS file name                                                                                           |
 | `input/gps/id`         | String | Optional | GPS id field/column name (default:`id`)                                                                 |
 | `input/gps/geom`       | String | Optional | GPS geometry field/column name (default:`geom`), only applicable for CSV file                           |
@@ -90,6 +91,7 @@ An example can be
 | `input/network/id`     | String | Optional | network id field name (default:`id`)         |
 | `input/network/source` | String | Optional | network source field name (default:`source`) |
 | `input/network/target` | String | Optional | network target field name (default:`target`) |
+| `input/network/mode`   | String | Optional | network mode name (default:`drive`), only applies to OSM network, one of `drive|walk|bike|all`.   |
 | `parameters/delta`     | float  | Optional | Upper distance of routing (default:`3000`, unit: map unit)   |
 | `output.file`          | String | Required | Output file name                             |
 | `other/log_level`      | int    | Optional | Log level  (default:`2`(infor)), `0`-trace,`1`-debug,`2`-info,`3`-warn,`4`-err,`5`-critical,`6`-off |
@@ -133,6 +135,7 @@ An example is provided as
 | `--network_id`    | string | optional | Network id name (id)         |
 | `--source`        | string | optional | Network source name (source) |
 | `--target`        | string | optional | Network target name (target) |
+| `--mode`          | String | Optional | network mode name (default:`drive`), only applies to OSM network, one of `drive|walk|bike|all`. |
 | `--gps`           | string | required | GPS file name                |
 | `--gps_id`        | string | optional | GPS id name (id)             |
 | `--gps_geom`      | string | optional | GPS geometry name (geom) (Applicable to GPS trajectory file)    |
@@ -158,6 +161,7 @@ An example is provided as
 | `--network_id`    | string | optional | Network id name (id)         |
 | `--source`        | string | optional | Network source name (source) |
 | `--target`        | string | optional | Network target name (target) |
+| `--mode`          | String | Optional | network mode name (default:`drive`), only applies to OSM network, one of `drive|walk|bike|all`.                         |
 | `--output`    | string | required | Output file name             |
 | `--delta`     | float  | optional | upperbound (3000)            |
 | `--log_level` | int    | optional | log level (2)                |
