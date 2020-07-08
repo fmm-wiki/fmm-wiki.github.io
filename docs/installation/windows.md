@@ -15,31 +15,44 @@ nav_order: 3
 
 Tested on Win7 (64bit) with [cygwin](https://www.cygwin.com/) environment
 
-1. Install [cygwin](https://www.cygwin.com/) and [apt-cyg](https://github.com/transcode-open/apt-cyg).  
-After you have installed cygwin, open the cygwin-terminal and run the following scripts to install apt-cyg.
+1. Download and Install [cygwin](https://www.cygwin.com/)
+
+2. Install [apt-cyg](https://github.com/transcode-open/apt-cyg).  
+
+After you have installed cygwin, open the **cygwin-terminal** and run the following command to install apt-cyg.
+
 ```
   wget https://raw.githubusercontent.com/transcode-open/apt-cyg/master/apt-cyg
   chmod +x apt-cyg
   mv apt-cyg /usr/local/bin
 ```
-2. Install libraries using apt-cyg
+
+3. Install the required libraries using apt-cyg
 ```
-  apt-cyg install make gcc-g++ cmake gdal libboost-devel libgdal-devel libexpat1-devel libbz2-devel zlib-devel
-```
-3. For python extension
-```
-  apt-cyg install swig python-devel
+  apt-cyg install make gcc-g++ cmake gdal libboost-devel libgdal-devel libexpat1-devel libbz2-devel zlib-devel swig python-devel
 ```
 
 ## Install C++ program and Python bindings
 
-1. Build and install the program with cmake
+1. Download the fmm code, open the **cygwin-terminal**
+
 ```
-# Under the fmm project folder
+mkdir fmm
+cd fmm
+git clone git@github.com:cyang-kth/fmm.git .
+```
+
+You check the path of the  `fmm` folder by typing `pwd` on the terminal.
+
+2. Build and install fmm
+
+On the **cygwin-terminal**, build and install the program with cmake
+```
+# Under the `fmm` folder
 mkdir build
 cd build
-cmake -G "Unix Makefiles" ..
-make
+cmake ..
+make -j8
 make install
 ```
 It will build executable files under the `build` folder, which are installed to `/usr/local/bin`:
@@ -50,10 +63,11 @@ It will build executable files under the `build` folder, which are installed to 
 It will also create a folder `python` under the build path, which contains library that can
 be imported into Python. In order to import fmm successfully and that folder must be added to the environment variable `PYTHONPATH`.
 
-Add the `build/python` folder to the environment variable `PYTHONPATH` (set the `PATH_TO_BUILD_PYTHON_FOLDER` below to the **absolute path** of the `build/python` folder, e.g., `/home/Administrator/workspace/fmm/build/python`, you can run `pwd` to check the absolute path of the current folder):
+Execute the commands below to add `fmm/build` folder to the environment variable `PATH` and the `build/python` folder to the environment variable `PYTHONPATH` (set the `/home/fmm/build` and `/home/fmm/build/python` below to the **absolute path** of the `build` and `build/python` folder, you can run `pwd` to check the absolute path of each folder):
 ```
-    echo 'export PYTHONPATH=${PYTHONPATH}:PATH_TO_BUILD_FOLDER' >> ~/.bashrc
-    source ~/.bashrc
+    echo 'export PATH=/home/fmm/build:${PATH}' >> ~/.bash_profile
+    echo 'export PYTHONPATH=/home/fmm/build/python:${PYTHONPATH}' >> ~/.bash_profile
+    source ~/.bash_profile
 ```
 
 ## Verfication of installation
@@ -81,7 +95,6 @@ fmm argument lists:
 --candidates (optional) <int>: number of candidates (8)
 --radius (optional) <double>: search radius (300)
 --error (optional) <double>: GPS error (50)
---pf (optional) <double>: penalty factor (0)
 --log_level (optional) <int>: log level (2)
 --output_fields (optional) <string>: Output fields
   opath,cpath,tpath,ogeom,mgeom,pgeom,
