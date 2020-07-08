@@ -25,9 +25,10 @@ After you have installed cygwin, open the **cygwin-terminal** and run the follow
   wget https://raw.githubusercontent.com/transcode-open/apt-cyg/master/apt-cyg
   chmod +x apt-cyg
   mv apt-cyg /usr/local/bin
-```
+```  
 
 3. Install the required libraries using apt-cyg
+
 ```
   apt-cyg install make gcc-g++ cmake gdal libboost-devel libgdal-devel libexpat1-devel libbz2-devel zlib-devel swig python-devel
 ```
@@ -107,7 +108,7 @@ For xml configuration, check example folder
 
 Run in bash
 ```
-    # Change to the parent folder which contains fmm_test.py
+    # Change to the `example/python` folder which contains fmm_test.py
     cd ../example/python
     python fmm_test.py
 ```
