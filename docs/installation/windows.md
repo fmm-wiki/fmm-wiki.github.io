@@ -15,39 +15,30 @@ nav_order: 3
 
 Tested on Win7 (64bit) with [cygwin](https://www.cygwin.com/) environment
 
-1. Download and Install [cygwin](https://www.cygwin.com/)
-
+1. Download and Install [cygwin](https://www.cygwin.com/)  
 2. Install [apt-cyg](https://github.com/transcode-open/apt-cyg).  
-
-After you have installed cygwin, open the **cygwin-terminal** and run the following command to install apt-cyg.
-
+After you have installed cygwin, open the **cygwin-terminal** and run the following command to install apt-cyg.  
 ```
   wget https://raw.githubusercontent.com/transcode-open/apt-cyg/master/apt-cyg
   chmod +x apt-cyg
   mv apt-cyg /usr/local/bin
 ```  
-
-3. Install the required libraries using apt-cyg
-
+3. Install the required libraries using apt-cyg  
 ```
   apt-cyg install make gcc-g++ cmake gdal libboost-devel libgdal-devel libexpat1-devel libbz2-devel zlib-devel swig python-devel
-```
+```  
 
 ## Install C++ program and Python bindings
 
-1. Download the fmm code, open the **cygwin-terminal**
-
+1. Download the fmm code, open the **cygwin-terminal**  
 ```
 mkdir fmm
 cd fmm
 git clone git@github.com:cyang-kth/fmm.git .
-```
-
-You check the path of the  `fmm` folder by typing `pwd` on the terminal.
-
-2. Build and install fmm
-
-On the **cygwin-terminal**, build and install the program with cmake
+```  
+You check the path of the  `fmm` folder by typing `pwd` on the terminal.  
+2. Build and install fmm  
+On the **cygwin-terminal**, build and install the program with cmake  
 ```
 # Under the `fmm` folder
 mkdir build
@@ -55,27 +46,25 @@ cd build
 cmake ..
 make -j8
 make install
-```
+```  
 It will build executable files under the `build` folder, which are installed to `/usr/local/bin`:
 - `ubodt_gen`: the Upper bounded origin destination table (UBODT) generator (precomputation) program
 - `fmm`: the program implementing fast map matching algorithm
-- `stmatch`: the program implementing STMATCH algorithm, no precomputation needed
-
+- `stmatch`: the program implementing STMATCH algorithm, no precomputation needed  
 It will also create a folder `python` under the build path, which contains library that can
-be imported into Python. In order to import fmm successfully and that folder must be added to the environment variable `PYTHONPATH`.
-
+be imported into Python. In order to import fmm successfully and that folder must be added to the environment variable `PYTHONPATH`.  
+3. Update environment variables  
 Execute the commands below to add `fmm/build` folder to the environment variable `PATH` and the `build/python` folder to the environment variable `PYTHONPATH` (set the `/home/fmm/build` and `/home/fmm/build/python` below to the **absolute path** of the `build` and `build/python` folder, you can run `pwd` to check the absolute path of each folder):
 ```
     echo 'export PATH=/home/fmm/build:${PATH}' >> ~/.bash_profile
     echo 'export PYTHONPATH=/home/fmm/build/python:${PYTHONPATH}' >> ~/.bash_profile
     source ~/.bash_profile
-```
+```  
 
 ## Verfication of installation
 
-### Run command line map matching
-
-Open a new terminal and type `fmm`, you should see the following output:
+### Verify c++ program  
+Open a **cygwin-terminal** terminal and type `fmm`, you should see the following output:
 ```
 ------------ Fast map matching (FMM) ------------
 ------------     Author: Can Yang    ------------
@@ -102,14 +91,12 @@ fmm argument lists:
   offset,error,spdist,tp,ep,all
 For xml configuration, check example folder
 ------------    Program finished     ------------
+```  
+### Verify python binding  
+In the **cygwin-terminal**, execute the command below
 ```
-
-### Run python script
-
-Run in bash
-```
-    # Change to the `example/python` folder which contains fmm_test.py
-    cd ../example/python
+    # Change to the `example/python` folder under fmm master directory which contains fmm_test.py
+    cd /home/fmm/example/python
     python fmm_test.py
 ```
 

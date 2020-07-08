@@ -1,5 +1,5 @@
 title: "FMM"
-remote_theme: pmarsceill/just-the-docs
+remote_theme: pmarsceill/just-the-docs@v0.2.7
 search_enabled: true
 
 url: "https://fmm-wiki.github.io"
