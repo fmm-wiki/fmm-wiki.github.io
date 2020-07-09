@@ -27,7 +27,8 @@ Examples can be found at [gps.csv](https://github.com/cyang-kth/fmm/blob/master/
 Network data should be stored in
 
 - [OSM xml or binary format](https://wiki.openstreetmap.org/wiki/OSM_file_formats). The file should be ended with extensions of `osm,pbf,bz2,o5m`.
-- ESRI shapefile or Geopackage. Each feature should store a network edge with **id, source and target fields**, which define the topology of network graph.
+- ESRI shapefile or Geopackage. Each feature should store a network edge with **id, source and target fields**, which define the topology of network graph.  
+  - Check the example network file at the data folder [edges.shp](https://github.com/cyang-kth/fmm/blob/master/example/data/edges.shp).
 
 
 As shown below in solid line below:

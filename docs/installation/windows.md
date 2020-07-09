@@ -15,6 +15,11 @@ nav_order: 3
 
 Tested on Win7 (64bit) with [cygwin](https://www.cygwin.com/) environment
 
+Note
+{: .label .label-blue }
+All the commands listed below should be executed **under the cygwin terminal** instead of
+the windows cmd terminal.
+
 1. Download and Install [cygwin](https://www.cygwin.com/)  
 2. Install [apt-cyg](https://github.com/transcode-open/apt-cyg).  
 After you have installed cygwin, open the **cygwin-terminal** and run the following command to install apt-cyg.  
@@ -36,7 +41,8 @@ mkdir fmm
 cd fmm
 git clone git@github.com:cyang-kth/fmm.git .
 ```  
-You check the path of the  `fmm` folder by typing `pwd` on the terminal.  
+You check the path of the `fmm` folder by typing `pwd` on the terminal.
+
 2. Build and install fmm  
 On the **cygwin-terminal**, build and install the program with cmake  
 ```
@@ -54,12 +60,20 @@ It will build executable files under the `build` folder, which are installed to 
 It will also create a folder `python` under the build path, which contains library that can
 be imported into Python. In order to import fmm successfully and that folder must be added to the environment variable `PYTHONPATH`.  
 3. Update environment variables  
+
 Execute the commands below to add `fmm/build` folder to the environment variable `PATH` and the `build/python` folder to the environment variable `PYTHONPATH` (set the `/home/fmm/build` and `/home/fmm/build/python` below to the **absolute path** of the `build` and `build/python` folder, you can run `pwd` to check the absolute path of each folder):
 ```
-    echo 'export PATH=/home/fmm/build:${PATH}' >> ~/.bash_profile
-    echo 'export PYTHONPATH=/home/fmm/build/python:${PYTHONPATH}' >> ~/.bash_profile
+    echo 'export PATH=/home/fmm/build:$PATH' >> ~/.bash_profile
+    echo 'export PYTHONPATH=/home/fmm/build/python:$PYTHONPATH' >> ~/.bash_profile
     source ~/.bash_profile
-```  
+```
+
+Note:
+{: .label .label-blue }
+
+The paths set here should be absolute path in cygwin environment (Not the path in windows system). If your project is placed under `E:/fmm-master` (in windows) then the path in Cygwin should be `/cygdrive/e/fmm-master`. Run `pwd` under a folder to check its path.
+
+
 
 ## Verfication of installation
 
