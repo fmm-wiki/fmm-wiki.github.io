@@ -27,6 +27,7 @@ parent: Documentation
 | `input/gps/file`       | String | Required | GPS file name                                                                                           |
 | `input/gps/id`         | String | Optional | GPS id field/column name (default:`id`)                                                                 |
 | `input/gps/geom`       | String | Optional | GPS geometry field/column name (default:`geom`), only applicable for CSV file                           |
+| `input/gps/gps_point`  | - | Optional | if specified read input data as gps point, otherwise (default) read input data as trajectory |
 | `input/gps/x`       | String | Optional | X field/column name (default:`x`), only applicable for GPS point CSV file                           |
 | `input/gps/y`       | String | Optional | Y field/column name (default:`y`), only applicable for GPS point CSV file                           |
 | `input/gps/timestamp`  | String | Optional | Timestamp field/column name (default:`timestamp`), an integer list (Trajectory file) and int (Point GPS file)                           |
@@ -139,6 +140,7 @@ An example is provided as
 | `--gps`           | string | required | GPS file name                |
 | `--gps_id`        | string | optional | GPS id name (id)             |
 | `--gps_geom`      | string | optional | GPS geometry name (geom) (Applicable to GPS trajectory file)    |
+| `--gps_point`  | string | optional | if specified read input data as gps point, otherwise (default) read input data as trajectory | 
 | `--gps_x`      | string | optional | GPS x name (x)  (Applicable to GPS point CSV file)  |
 | `--gps_y`      | string | optional | GPS y name (y)  (Applicable to GPS point CSV file)  |
 | `--gps_timestamp`      | string | optional | GPS timestamp name (timestamp) |
