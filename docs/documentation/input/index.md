@@ -19,8 +19,10 @@ GPS trajectory data should be stored in one of the three formats:
 An example can be found at [trips.shp](https://github.com/cyang-kth/fmm/blob/master/example/data/trips.shp)  
 - CSV trajectory file: a CSV file with a header row and columns separated by `;`. Each row stores a trajectory with id (integer), geometry in [WKT linestring format](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) and timestamp(optional, a sequence of intergers). The id, geometry and timestamp column names will be specified by the user.  
 An example can be found at [trips.csv](https://github.com/cyang-kth/fmm/blob/master/example/data/trips.csv)  
-- CSV point file: a CSV file with a header row and columns separated by `;`. Each row stores a single observation containing id(integer), x(longitude), y(latitude), timestamp(optional, integer). The file must be sorted already by id and timestamp (trajectory will be passed). The id, x, y and timestamp column names will be specified by the user.  
+- CSV point file: a CSV file with a header row and columns separated by `;`. Each row stores a single observation containing id(integer), x(longitude), y(latitude), timestamp(optional, integer). The file **must be sorted already by id and timestamp (trajectory will be passed sequentially)**. The id, x, y and timestamp column names will be specified by the user.  
 Examples can be found at [gps.csv](https://github.com/cyang-kth/fmm/blob/master/example/data/gps.csv) and [gps_timestamps.csv](https://github.com/cyang-kth/fmm/blob/master/example/data/gps_timestamps.csv).
+
+You can use this [gps2traj](https://github.com/cyang-kth/gps2traj) tool to convert unsorted GPS data in point CSV format into trajectory CSV format, then use it in fmm. 
 
 ## Network data
 
