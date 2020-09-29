@@ -62,6 +62,14 @@ Add the `build/python` folder to the environment variable `PYTHONPATH` (set the 
     source ~/.bashrc
 ```
 
+To make sure that you have the environment path set correctly. Execute the following command in a new terminal.
+
+```
+echo $PYTHONPATH;
+# You should see
+/home/Administrator/workspace/fmm/build/python
+```
+
 ## Verfication of installation
 
 ### Run command line map matching

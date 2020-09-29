@@ -29,10 +29,36 @@ cmake .. -DPYTHON_LIBRARY=/anaconda2/lib/libpython2.7.dylib -DPYTHON_INCLUDE_DIR
 ImportError: dynamic module does not define init function (init_fmm)
 ```
 It may be caused by multiple version of Python installed, check the issue above.
+
 1. ImportError: No module named fmm  
 ```
   File "fmm_test.py", line 1, in <module>
     import fmm
   ImportError: No module named fmm
 ```
-Make sure that the `build` folder is added to the environment variable `PYTHONPATH` as shown above (step 2 of installation).
+Make sure that the `build/python` folder is added to the environment variable `PYTHONPATH` as shown above (step 2 of installation).
+
+Make sure that when you run the following commands in your terminal. You should see this information in your output (If fmm is downloaded at location `/home/Administrator/workspace/fmm`).
+
+```
+echo $PYTHONPATH;
+# You should see /home/Administrator/workspace/fmm/build/python
+```
+
+1. ImportError: No such file or directory
+
+Make sure that the `build/python` folder is added to the environment variable `PYTHONPATH` as shown above (step 2 of installation).
+
+Make sure that when you run the following commands in your terminal. You should see this information in your output (If fmm is downloaded at location `/home/Administrator/workspace/fmm`).
+
+```
+echo $PYTHONPATH;
+# You should see /home/Administrator/workspace/fmm/build/python
+```
+
+On windows platform (cygwin enviroment), it seems that you also need to add the `build` folder to the `PATH` variable, then run
+
+```
+echo $PATH;
+# You should see /home/Administrator/workspace/fmm/build
+```

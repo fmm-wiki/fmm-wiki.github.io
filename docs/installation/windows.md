@@ -73,6 +73,16 @@ Note:
 
 The paths set here should be absolute path in cygwin environment (Not the path in windows system). If your project is placed under `E:/fmm-master` (in windows) then the path in Cygwin should be `/cygdrive/e/fmm-master`. Run `pwd` under a folder to check its path.
 
+To make sure that you have the environment paths set correctly. Execute the following two lines in the terminal.
+
+```
+echo $PATH;
+# You should see
+# /cygdrive/e/fmm-master/build
+echo $PYTHONPATH;
+# You should see
+# /cygdrive/e/fmm-master/build/python 
+```
 
 
 ## Verfication of installation

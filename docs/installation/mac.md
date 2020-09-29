@@ -49,8 +49,16 @@ be imported into Python. In order to import fmm successfully and that folder mus
 
 Add the `build/python` folder to the environment variable `PYTHONPATH` (set the `PATH_TO_BUILD_PYTHON_FOLDER` below to the **absolute path** of the `build/python` folder, e.g., `/home/Administrator/workspace/fmm/build/python`, you can run `pwd` to check the absolute path of the current folder):
 ```
-    echo 'export PYTHONPATH=${PYTHONPATH}:PATH_TO_BUILD_FOLDER' >> ~/.bashrc
+    echo 'export PYTHONPATH=${PYTHONPATH}:PATH_TO_BUILD_PYTHON_FOLDER' >> ~/.bashrc
     source ~/.bashrc
+```
+
+To make sure that you have the environment paths set correctly. Execute the following command in a new terminal.
+
+```
+echo $PYTHONPATH;
+# You should see
+/home/Administrator/workspace/fmm/build/python
 ```
 
 ## Verfication of installation
