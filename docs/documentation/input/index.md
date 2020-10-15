@@ -22,16 +22,22 @@ An example can be found at [trips.csv](https://github.com/cyang-kth/fmm/blob/mas
 - CSV point file: a CSV file with a header row and columns separated by `;`. Each row stores a single observation containing id(integer), x(longitude), y(latitude), timestamp(optional, integer). The file **must be sorted already by id and timestamp (trajectory will be passed sequentially)**. The id, x, y and timestamp column names will be specified by the user.  
 Examples can be found at [gps.csv](https://github.com/cyang-kth/fmm/blob/master/example/data/gps.csv) and [gps_timestamps.csv](https://github.com/cyang-kth/fmm/blob/master/example/data/gps_timestamps.csv).
 
-You can use this [gps2traj](https://github.com/cyang-kth/gps2traj) tool to convert unsorted GPS data in point CSV format into trajectory CSV format, then use it in fmm. 
+You can use this [gps2traj](https://github.com/cyang-kth/gps2traj) tool to convert unsorted GPS data in point CSV format into trajectory CSV format, then use it in fmm.
 
 ## Network data
 
 Network data should be stored in
 
 - [OSM xml or binary format](https://wiki.openstreetmap.org/wiki/OSM_file_formats). The file should be ended with extensions of `osm,pbf,bz2,o5m`.
-- ESRI shapefile or Geopackage. Each feature should store a network edge with **id, source and target fields**, which define the topology of network graph.  
-  - Check the example network file at the data folder [edges.shp](https://github.com/cyang-kth/fmm/blob/master/example/data/edges.shp).
-
+  - Note that although FMM can directly read OSM file as input, the original OSM file is common to contain poor topology information (https://github.com/cyang-kth/fmm/issues/99). Therefore, it is recommended to use OSMNX to download a routable shapefile for OSM. Check https://github.com/cyang-kth/osm_mapmatching.
+- ESRI shapefile. A linestring shapefile with the following requirements.
+  - The network contains fields representing **id, source and target fields**, which represents ID of a line, source node ID and target node ID. (The names of the three fields can be specified by the user.). As shown in the example below, the three values can be (13,5,6).
+  - A bidirectional road should be stored as two reverse lines
+    - Their ID should be different (e.g., 12 and 13)
+    - Source and target fields should be reverted for the reverse edge. If one is source 5 target 6, the other one should be source 6, target 5.
+    - The geometry of the feature should be reversed for the feature. If one is `LineString(0 1, 1 1, 2 2)` the other one should be `LineString(2 2, 1 1, 0 1)`.
+- Check the example network file at the data folder [edges.shp](https://github.com/cyang-kth/fmm/blob/master/example/data/edges.shp).
+- Shapefile downloaded for OSM network using the script https://github.com/cyang-kth/osm_mapmatching satisfy the above requirements automatically.
 
 As shown below in solid line below:
 
