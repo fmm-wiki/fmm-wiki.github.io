@@ -43,4 +43,4 @@ with (from the docuementation of [cmake](https://cmake.org/cmake/help/v3.0/modul
 cmake .. -DPYTHON_LIBRARY=/anaconda2/lib/libpython2.7.dylib -DPYTHON_INCLUDE_DIR=/anaconda2/include/python2.7
 ```
 
-You can also post an issue at https://github.com/cyang-kth/fmm.
+You can also post an issue at [fmm repo](https://github.com/cyang-kth/fmm).
