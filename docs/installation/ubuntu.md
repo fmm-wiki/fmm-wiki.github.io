@@ -53,22 +53,7 @@ It will build executable files under the `build` folder, which are installed to 
 - `fmm`: the program implementing fast map matching algorithm
 - `stmatch`: the program implementing STMATCH algorithm, no precomputation needed
 
-It will also create a folder `python` under the build path, which contains library that can
-be imported into Python. In order to import fmm successfully and that folder must be added to the environment variable `PYTHONPATH`.
-
-Add the `build/python` folder to the environment variable `PYTHONPATH` (set the `PATH_TO_BUILD_PYTHON_FOLDER` below to the **absolute path** of the `build/python` folder, e.g., `/home/Administrator/workspace/fmm/build/python`, you can run `pwd` to check the absolute path of the current folder):
-```
-    echo 'export PYTHONPATH=${PYTHONPATH}:PATH_TO_BUILD_FOLDER' >> ~/.bashrc
-    source ~/.bashrc
-```
-
-To make sure that you have the environment path set correctly. Execute the following command in a new terminal.
-
-```
-echo $PYTHONPATH;
-# You should see
-/home/Administrator/workspace/fmm/build/python
-```
+It will also create a folder `python` under the build path, which contains fmm bindings (`fmm.py` and `_fmm.so`) that are installed into Python site-packages location (e.g., `/usr/lib/python2.7/dist-packages`). 
 
 ## Verfication of installation
 

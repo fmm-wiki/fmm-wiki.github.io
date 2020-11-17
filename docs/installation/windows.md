@@ -57,33 +57,15 @@ It will build executable files under the `build` folder, which are installed to 
 - `ubodt_gen`: the Upper bounded origin destination table (UBODT) generator (precomputation) program
 - `fmm`: the program implementing fast map matching algorithm
 - `stmatch`: the program implementing STMATCH algorithm, no precomputation needed  
-It will also create a folder `python` under the build path, which contains library that can
-be imported into Python. In order to import fmm successfully and that folder must be added to the environment variable `PYTHONPATH`.  
-3. Update environment variables  
 
-Execute the commands below to add `fmm/build` folder to the environment variable `PATH` and the `build/python` folder to the environment variable `PYTHONPATH` (set the `/home/fmm/build` and `/home/fmm/build/python` below to the **absolute path** of the `build` and `build/python` folder, you can run `pwd` to check the absolute path of each folder):
-```
-    echo 'export PATH=/home/fmm/build:$PATH' >> ~/.bash_profile
-    echo 'export PYTHONPATH=/home/fmm/build/python:$PYTHONPATH' >> ~/.bash_profile
-    source ~/.bash_profile
-```
+It will also create a folder `python` under the build path, which contains fmm bindings (`fmm.py` and `_fmm.so`) that are installed into Python site-packages location (e.g., `/usr/lib/python2.7/dist-packages`).
 
-Note:
-{: .label .label-blue }
-
-The paths set here should be absolute path in cygwin environment (Not the path in windows system). If your project is placed under `E:/fmm-master` (in windows) then the path in Cygwin should be `/cygdrive/e/fmm-master`. Run `pwd` under a folder to check its path.
-
-To make sure that you have the environment paths set correctly. Execute the following two lines in the terminal.
+Since a shared library is installed into `/usr/local/lib`, that path must be added to the `PATH` variable in cygwin.  
 
 ```
-echo $PATH;
-# You should see
-# /cygdrive/e/fmm-master/build
-echo $PYTHONPATH;
-# You should see
-# /cygdrive/e/fmm-master/build/python 
+echo 'export PATH=/usr/local/lib:$PATH' >> ~/.bash_profile
+source ~/.bash_profile
 ```
-
 
 ## Verfication of installation
 
@@ -116,7 +98,9 @@ fmm argument lists:
 For xml configuration, check example folder
 ------------    Program finished     ------------
 ```  
+
 ### Verify python binding  
+
 In the **cygwin-terminal**, execute the command below
 ```
     # Change to the `example/python` folder under fmm master directory which contains fmm_test.py
